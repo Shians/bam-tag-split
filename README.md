@@ -18,7 +18,17 @@ cmake .
 make
 ```
 
-The executable binaries will be in the `dist` folder.
+The executable binaries will be in the `dist` folder to install it to the default path run
+
+```
+make install
+```
+
+or for a custom path
+
+```
+make DESTDIR=/custom/path install
+```
 
 ## Usage
 
