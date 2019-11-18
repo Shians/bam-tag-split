@@ -27,8 +27,11 @@ make install
 or for a custom path
 
 ```
-make DESTDIR=/custom/path install
+cmake -DCMAKE_INSTALL_PREFIX=/custom/path .
+make install
 ```
+
+The executable will be created under the `bin` folder at the specified path.
 
 ## Usage
 
