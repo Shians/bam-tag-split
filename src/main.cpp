@@ -51,13 +51,6 @@ void write_to_file(const bam1_t *b, BGZF *fp) {
     bam_write1(fp, b);
 }
 
-static htsFile *dup_stdout(const char *mode)
-{
-    int fd = dup(STDOUT_FILENO);
-    hFILE *hfp = (fd >= 0)? hdopen(fd, mode) : NULL;
-    return hfp? hts_hopen(hfp, "-", mode) : NULL;
-}
-
 int main(int argc, char* argv[]) {
     parse_args(argc, argv);
     check_args();
