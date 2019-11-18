@@ -14,9 +14,12 @@ add_executable (
     src/main.cpp
     src/options.cpp
 )
+
 target_link_libraries (
     ${CMAKE_PROJECT_NAME}
     hts
     ${Boost_FILESYSTEM_LIBRARY}
     ${Boost_SYSTEM_LIBRARY}
 )
+
+install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION bin)
