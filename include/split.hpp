@@ -13,5 +13,5 @@
 #include <htslib/thread_pool.h>
 
 #include "fmt/format.h"
-#include "options.hpp"
+#include "split_options.hpp"
 #include "Timer.hpp"

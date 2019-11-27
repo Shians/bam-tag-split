@@ -1,4 +1,4 @@
-#include "main.hpp"
+#include "split.hpp"
 
 using namespace std;
 using std::this_thread::sleep_for;
