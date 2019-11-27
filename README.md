@@ -1,6 +1,6 @@
-# Split BAM file by tag
+# Tools for working with BAM file tags
 
-Demultiplex paired end reads by fixed position barcodes. This library requires Boost C++ libraries and a compiler supporting C++11. This software is work in progress.
+Utilities for working with tags in BAM files. This library requires Boost C++ libraries and a compiler supporting C++11. This software is work in progress, bug reports and feature requests welcomed.
 
 ## Installation
 
