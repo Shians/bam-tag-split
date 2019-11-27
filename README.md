@@ -12,8 +12,8 @@ This software has successfully compiled on:
 To compile the program:
 
 ```
-git clone https://github.com/Shians/bam-tag-split.git
-cd bam-tag-split
+git clone https://github.com/Shians/bam-tag-tools.git
+cd bam-tag-tools
 cmake .
 make
 ```
@@ -31,19 +31,22 @@ cmake -DCMAKE_INSTALL_PREFIX=/custom/path .
 make install
 ```
 
-The executable will be created under the `bin` folder at the specified path.
+The executables will be created under the `bin` folder at the specified path.
 
 ## Usage
 
 Basic usage:
 
 ```
-dist/bam-tag-split  -i input.bam -t RG // split samples by RG tag
+bam-tag-split  -i input.bam -t RG // split samples by RG tag
+bam-tag-extract  -i input.bam -o output.tsv -t RG // split samples by RG tag
 ```
 
-See `bam-tag-split --help` for details.
+See `bam-tag-split --help` and `bam-tag-extract --help` for details.
 
-BAM files will be created for each unique tag found under the specified 2-character tag. By default the reads that are empty in the specified tag are not output, they can be output into an undetermined BAM file using `--all`.
+For `bam-tag-split` BAM files will be created for each unique tag found under the specified 2-character tag. By default the reads that are empty in the specified tag are not output, they can be output into an undetermined BAM file using `--all`.
+
+For `bam-tag-extract` a tab-separated file containing two columns will be created with columns `read_name` and the name of the tag. (e.g. `read_name RG`)
 
 ## Warnings
 

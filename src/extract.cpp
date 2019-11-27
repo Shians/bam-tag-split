@@ -80,7 +80,7 @@ int main(int argc, char* argv[]) {
         if (hap_ptr == nullptr) {
             // if no tag found
             if (PRG_OPTS.output_all) {
-                out_file << read_name << "\tNA" << "\n";
+                out_file << read_name << "\t" << "\n";
             }
         } else {
             // convert tag value to string
