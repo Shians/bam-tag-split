@@ -4,6 +4,7 @@ using namespace std;
 using std::this_thread::sleep_for;
 using std::chrono::milliseconds;
 
+// translate aux type from single character encoding to string
 const string translate_aux_type(char c) {
     switch (c) {
         case 'A': return("character");
@@ -13,6 +14,7 @@ const string translate_aux_type(char c) {
     }
 }
 
+// get aux type of specified tag from bam record
 string get_aux_type(string &bam) {
     samFile *fp_in = hts_open(bam.c_str(), "r");
     bam_hdr_t *bam_hdr = sam_hdr_read(fp_in);
@@ -122,7 +124,11 @@ int main(int argc, char* argv[]) {
     bam_destroy1(aln);
     sam_close(fp_in);
     if (p.pool) hts_tpool_destroy(p.pool);
-    for (auto x : file_map) { bgzf_close(x.second); }
+    for (auto x : file_map) { 
+        auto bam_file = x.second;
+        bgzf_close(bam_file);
+    }
+    bgzf_close(undetermined_file);
 
     cout << "Time elapsed: " << timer.time_elapsed() << "\n";
 
