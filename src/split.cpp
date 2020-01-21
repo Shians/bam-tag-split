@@ -50,7 +50,8 @@ string get_aux_type(string &bam) {
 }
 
 void write_to_file(const bam1_t *b, BGZF *fp) {
-    bam_write1(fp, b);
+    // discard return value
+    (void) bam_write1(fp, b);
 }
 
 int main(int argc, char* argv[]) {
@@ -84,7 +85,8 @@ int main(int argc, char* argv[]) {
         // create file for tagless entries
         string fname = fmt::format("{}_undetermined.bam", PRG_OPTS.split_prefix).c_str();
         undetermined_file = bgzf_open(fname.c_str(), "w");
-        bam_hdr_write(undetermined_file, bam_hdr);
+        // discard return value
+        (void) bam_hdr_write(undetermined_file, bam_hdr);
     }
 
     while (sam_read1(fp_in, bam_hdr, aln) > 0) {
@@ -111,7 +113,8 @@ int main(int argc, char* argv[]) {
                 // create new file
                 string fname = fmt::format("{}_{}.bam", PRG_OPTS.split_prefix, hap_str);
                 file_map[hap_str] = bgzf_open(fname.c_str(), "w");
-                bam_hdr_write(file_map[hap_str], bam_hdr);
+                // discard return value
+                (void) bam_hdr_write(file_map[hap_str], bam_hdr);
             }
 
             // write bam entry to matched tag file
