@@ -6,3 +6,4 @@ Makefile
 build
 dist
 test
+.vscode/settings.json
