@@ -39,7 +39,7 @@ Basic usage:
 
 ```
 bam-tag-split  -i input.bam -t RG // split samples by RG tag
-bam-tag-extract  -i input.bam -o output.tsv -t RG // split samples by RG tag
+bam-tag-extract  -i input.bam -o output.tsv -t RG // extract RG tag into output.tsv
 ```
 
 See `bam-tag-split --help` and `bam-tag-extract --help` for details.
