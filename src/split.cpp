@@ -127,11 +127,14 @@ int main(int argc, char* argv[]) {
     bam_destroy1(aln);
     sam_close(fp_in);
     if (p.pool) hts_tpool_destroy(p.pool);
-    for (auto x : file_map) { 
+    for (auto &x : file_map) { 
         auto bam_file = x.second;
         bgzf_close(bam_file);
     }
-    bgzf_close(undetermined_file);
+
+    if (PRG_OPTS.output_all) {
+        bgzf_close(undetermined_file);
+    }
 
     cout << "Time elapsed: " << timer.time_elapsed() << "\n";
 
