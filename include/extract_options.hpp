@@ -1,5 +1,5 @@
-#pragma once
 #define FMT_HEADER_ONLY
+#pragma once
 #include <fmt/format.h>
 
 #include <algorithm>

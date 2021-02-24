@@ -4,9 +4,11 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -Wextra")
 set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
 project (bam-tag-tools)
 
-find_package(Boost COMPONENTS system filesystem REQUIRED)
+find_package (Boost COMPONENTS system filesystem REQUIRED)
 
-include_directories (include)
+add_subdirectory (include/fmt)
+
+include_directories (include include/fmt/include)
 set (CMAKE_RUNTIME_OUTPUT_DIRECTORY dist)
 
 set (SPLIT_PROG bam-tag-split)
@@ -35,6 +37,7 @@ add_executable (
 target_link_libraries (
     ${EXTRACT_PROG}
     hts
+    fmt::fmt
     ${Boost_FILESYSTEM_LIBRARY}
     ${Boost_SYSTEM_LIBRARY}
 )
