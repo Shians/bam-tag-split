@@ -21,8 +21,8 @@ add_executable (
 target_link_libraries (
     ${SPLIT_PROG}
     hts
-    ${Boost_FILESYSTEM_LIBRARY}
-    ${Boost_SYSTEM_LIBRARY}
+    Boost::filesystem
+    Boost::system
 )
 
 install(TARGETS ${SPLIT_PROG} DESTINATION bin)
@@ -38,8 +38,8 @@ target_link_libraries (
     ${EXTRACT_PROG}
     hts
     fmt::fmt
-    ${Boost_FILESYSTEM_LIBRARY}
-    ${Boost_SYSTEM_LIBRARY}
+    Boost::filesystem
+    Boost::system
 )
 
 install(TARGETS ${EXTRACT_PROG} DESTINATION bin)
